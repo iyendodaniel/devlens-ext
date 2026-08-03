@@ -1,0 +1,131 @@
+{
+  "name": "devlens",
+  "displayName": "DevLens",
+  "description": "Your project's memory: bugs solved, endpoints mapped, workflows automated - without leaving VS Code.",
+  "version": "0.4.0",
+  "publisher": "danieliyendo",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iyendodaniel/devlens.git"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "icon": "resources/icon.png",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "devlens",
+          "title": "DevLens",
+          "icon": "resources/activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "devlens": [
+        {
+          "id": "devlens.bugsView",
+          "name": "Bug Book",
+          "icon": "resources/activity-icon.svg"
+        },
+        {
+          "id": "devlens.endpointsView",
+          "name": "Endpoint Explorer",
+          "icon": "resources/activity-icon.svg"
+        },
+        {
+          "id": "devlens.actionsView",
+          "name": "Actions",
+          "icon": "resources/activity-icon.svg"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "devlens.endpointsView",
+        "when": "workbenchState == empty",
+        "contents": "Open a folder to scan it for Django endpoints."
+      },
+      {
+        "view": "devlens.endpointsView",
+        "when": "workbenchState != empty",
+        "contents": "No endpoints scanned yet for this project.\n[Scan for Endpoints](command:devlens.scanEndpoints)"
+      },
+      {
+        "view": "devlens.actionsView",
+        "when": "workbenchState == empty",
+        "contents": "Open a folder to see its Actions."
+      },
+      {
+        "view": "devlens.bugsView",
+        "contents": "No bugs logged yet.\n[Log a Bug](command:devlens.newBug)"
+      }
+    ],
+    "commands": [
+      { "command": "devlens.newBug", "title": "DevLens: New Bug", "icon": "$(add)" },
+      { "command": "devlens.openBug", "title": "DevLens: Open Bug" },
+      { "command": "devlens.deleteBug", "title": "DevLens: Delete Bug", "icon": "$(trash)" },
+      { "command": "devlens.refreshBugs", "title": "DevLens: Refresh Bug Book", "icon": "$(refresh)" },
+
+      { "command": "devlens.scanEndpoints", "title": "DevLens: Scan for Endpoints", "icon": "$(search-refresh)" },
+      { "command": "devlens.openEndpoint", "title": "DevLens: Open Endpoint" },
+      { "command": "devlens.refreshEndpoints", "title": "DevLens: Refresh Endpoint Explorer", "icon": "$(refresh)" },
+
+      { "command": "devlens.runAction", "title": "DevLens: Run Action", "icon": "$(play)" },
+      { "command": "devlens.toggleExecutionMode", "title": "DevLens: Toggle Learning/Automation Mode", "icon": "$(sync)" },
+      { "command": "devlens.editAction", "title": "DevLens: Edit Action", "icon": "$(edit)" },
+      { "command": "devlens.deleteAction", "title": "DevLens: Delete Action", "icon": "$(trash)" },
+      { "command": "devlens.newAction", "title": "DevLens: New Action", "icon": "$(add)" },
+      { "command": "devlens.setFrontendPath", "title": "DevLens: Set Frontend Folder…" },
+      { "command": "devlens.refreshActions", "title": "DevLens: Refresh Actions", "icon": "$(refresh)" },
+
+      { "command": "devlens.openDashboard", "title": "DevLens: Open Dashboard", "icon": "$(layout)" }
+    ],
+    "menus": {
+      "view/title": [
+        { "command": "devlens.newBug", "when": "view == devlens.bugsView", "group": "navigation" },
+        { "command": "devlens.refreshBugs", "when": "view == devlens.bugsView", "group": "navigation" },
+        { "command": "devlens.openDashboard", "when": "view == devlens.bugsView", "group": "navigation@99" },
+        { "command": "devlens.scanEndpoints", "when": "view == devlens.endpointsView", "group": "navigation" },
+        { "command": "devlens.refreshEndpoints", "when": "view == devlens.endpointsView", "group": "navigation" },
+        { "command": "devlens.openDashboard", "when": "view == devlens.endpointsView", "group": "navigation@99" },
+        { "command": "devlens.newAction", "when": "view == devlens.actionsView", "group": "navigation" },
+        { "command": "devlens.refreshActions", "when": "view == devlens.actionsView", "group": "navigation" },
+        { "command": "devlens.openDashboard", "when": "view == devlens.actionsView", "group": "navigation@99" }
+      ],
+      "view/item/context": [
+        { "command": "devlens.deleteBug", "when": "view == devlens.bugsView && viewItem == bug", "group": "inline" },
+        { "command": "devlens.runAction", "when": "view == devlens.actionsView && viewItem == action", "group": "inline" },
+        { "command": "devlens.toggleExecutionMode", "when": "view == devlens.actionsView && viewItem == action", "group": "inline" },
+        { "command": "devlens.editAction", "when": "view == devlens.actionsView && viewItem == action", "group": "inline" },
+        { "command": "devlens.deleteAction", "when": "view == devlens.actionsView && viewItem == action", "group": "inline" }
+      ],
+      "explorer/context": [
+        { "command": "devlens.scanEndpoints", "when": "resourceFilename == urls.py", "group": "devlens" }
+      ],
+      "editor/context": [
+        { "command": "devlens.scanEndpoints", "when": "resourceFilename == urls.py", "group": "devlens" }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "node esbuild.js --production",
+    "watch": "node esbuild.js --watch",
+    "package": "vsce package",
+    "compile-check": "tsc --noEmit -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.19.11",
+    "typescript": "^5.3.3",
+    "@vscode/vsce": "^2.24.0"
+  }
+}
