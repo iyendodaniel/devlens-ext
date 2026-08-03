@@ -1,17 +1,32 @@
 {
   "name": "devlens",
   "displayName": "DevLens",
-  "description": "Your project's memory: bugs solved, endpoints mapped, workflows automated - without leaving VS Code.",
+  "description": "Your project's memory: bugs solved, endpoints mapped, workflows automated — without leaving VS Code.",
   "version": "0.4.0",
-  "publisher": "danieliyendo",
+  "publisher": "iyendodaniel",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iyendodaniel/devlens-ext.git"
+  },
+  "homepage": "https://github.com/iyendodaniel/devlens-ext",
+  "bugs": {
+    "url": "https://github.com/iyendodaniel/devlens-ext/issues"
+  },
+  "keywords": [
+    "django",
+    "python",
+    "api",
+    "productivity",
+    "automation",
+    "developer",
+    "bug tracker",
+    "endpoints"
+  ],
   "engines": {
     "vscode": "^1.85.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/iyendodaniel/devlens.git"
-  },
-  "categories": ["Other"],
+  "categories": ["Programming Languages", "Other"],
   "activationEvents": [
     "onStartupFinished"
   ],
