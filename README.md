@@ -1,6 +1,6 @@
 # DevLens (VS Code Extension)
 
-Bug Book, Endpoint Explorer, and Actions — natively in VS Code, replacing the
+Bug Book, Endpoint Explorer, and Actions - natively in VS Code, replacing the
 pywebview desktop app.
 
 ## Install (unpublished, local `.vsix`)
@@ -11,13 +11,13 @@ pywebview desktop app.
 
 ## What's here (Phases 0–3 of the migration plan)
 
-- **Bug Book** — project-agnostic, same as before. `+` in the view title to
+- **Bug Book** - project-agnostic, same as before. `+` in the view title to
   log a bug; click one to edit.
-- **Endpoint Explorer** — scan button in the view title, or right-click any
+- **Endpoint Explorer** - scan button in the view title, or right-click any
   `urls.py` → "DevLens: Scan for Endpoints". Requires a Python interpreter
-  on PATH (or configured via the Python extension) — it shells out to the
+  on PATH (or configured via the Python extension) - it shells out to the
   bundled `scanner.py`, unchanged from the original.
-- **Actions** — click an action to run it. "Build Frontend" and "Python
+- **Actions** - click an action to run it. "Build Frontend" and "Python
   Migrations" are seeded automatically per project on first open. Regular
   command steps stream into a real integrated terminal; Build Frontend
   keeps its own build-then-copy flow (same as the original `api.py`).
@@ -26,7 +26,7 @@ pywebview desktop app.
 
 - Action step editing is raw JSON in a webview, not a per-field form.
 - Bug/endpoint editors are plain HTML forms, not the original shadcn/React
-  components — same fields and behavior, different rendering layer.
+  components - same fields and behavior, different rendering layer.
 - Multi-root workspaces use the first folder as "the" project.
 - No settings UI yet for e.g. overriding the Python interpreter directly.
 

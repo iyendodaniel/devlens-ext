@@ -6,7 +6,7 @@ const production = process.argv.includes("--production");
 const watch = process.argv.includes("--watch");
 
 /**
- * scanner.py is bundled data, not compiled code — esbuild only touches
+ * scanner.py is bundled data, not compiled code - esbuild only touches
  * .ts, so it's copied into dist/ manually on every build. scannerService.ts
  * looks for it at `context.extensionUri/dist/scanner.py`.
  */
