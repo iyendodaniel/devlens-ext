@@ -13,12 +13,12 @@ export interface BuildResult {
  * Ports api.py's buildFrontend + copyDistTo. These stayed hand-written
  * Python (not generic command steps) in the original because "npm run
  * build" needs OS-specific binary resolution (npm.cmd on Windows) and the
- * copy step isn't a shell command at all — same reasoning applies here,
+ * copy step isn't a shell command at all - same reasoning applies here,
  * so this stays its own service rather than folding into
  * CommandRunnerService's generic terminal runner.
  *
  * Unlike the terminal-based runner, this uses child_process.spawn directly
- * so completion can be awaited — required to know when it's safe to start
+ * so completion can be awaited - required to know when it's safe to start
  * the copy step, same sequencing the original blocking subprocess.run gave
  * you for free.
  */
@@ -68,7 +68,7 @@ export class BuildFrontendService {
     try {
       await vscode.workspace.fs.stat(distUri);
     } catch {
-      return { ok: false, output: "", error: "No dist/ folder found — did the build run?" };
+      return { ok: false, output: "", error: "No dist/ folder found - did the build run?" };
     }
 
     try {

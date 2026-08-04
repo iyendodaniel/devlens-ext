@@ -4,7 +4,7 @@ import { StorageService } from "../services/storageService";
 
 /**
  * One webview panel per open bug (or one for "new bug"). Deliberately plain
- * HTML/CSS/JS rather than the original shadcn/Radix React form — same
+ * HTML/CSS/JS rather than the original shadcn/Radix React form - same
  * fields, same behavior, no second build pipeline required inside the
  * extension. See the wrap-up notes for swapping in the real React
  * components later if the plain form ever feels limiting.

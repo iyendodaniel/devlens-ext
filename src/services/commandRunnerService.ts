@@ -30,7 +30,7 @@ export class CommandRunnerService {
   /**
    * Runs every command-type step in an Action, in order, in one terminal.
    * Operation-type steps (e.g. "copy the dist folder") are surfaced to the
-   * user rather than silently skipped — see BuildFrontendService for the
+   * user rather than silently skipped - see BuildFrontendService for the
    * one operation step DevLens actually knows how to perform natively.
    */
   async runAction(action: Action, projectRoot: string, settings: ProjectSettings): Promise<void> {
@@ -47,7 +47,7 @@ export class CommandRunnerService {
       if (!cwd) {
         const missing = step.cwd === "frontend" ? "frontend folder" : "project folder";
         void vscode.window.showErrorMessage(
-          `DevLens: no ${missing} configured — set it before running "${action.name}".`,
+          `DevLens: no ${missing} configured - set it before running "${action.name}".`,
         );
         return;
       }

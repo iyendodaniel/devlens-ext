@@ -27,11 +27,11 @@ export class ActionsTreeProvider implements vscode.TreeDataProvider<Action> {
       action.built_in ? " · built-in" : ""
     }`;
     item.tooltip = new vscode.MarkdownString(
-      `**${modeLabel} mode** — ${
+      `**${modeLabel} mode** - ${
         action.execution_mode === "learning"
           ? "shows every step before running, nothing executes until you confirm."
           : "runs all steps immediately, no confirmation."
-      }\n\n` + action.steps.map((s, i) => `${i + 1}. ${stepLabel(s)} — ${s.explanation}`).join("\n\n"),
+      }\n\n` + action.steps.map((s, i) => `${i + 1}. ${stepLabel(s)} - ${s.explanation}`).join("\n\n"),
     );
     item.contextValue = "action";
     item.iconPath = new vscode.ThemeIcon(action.execution_mode === "learning" ? "book" : "zap");

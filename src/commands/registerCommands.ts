@@ -30,13 +30,13 @@ export interface Providers {
   actionsTree: ActionsTreeProvider;
 }
 
-/** Requires a workspace folder to be open — most commands are project-
+/** Requires a workspace folder to be open - most commands are project-
  * scoped (see the workspace-folder-scoping decision). Shows a clear error
  * instead of silently no-oping when there isn't one. */
 function requireProjectId(projects: ProjectService): string | null {
   const projectId = projects.getCurrentProjectId();
   if (!projectId) {
-    void vscode.window.showErrorMessage("DevLens: open a folder first — this needs a project workspace.");
+    void vscode.window.showErrorMessage("DevLens: open a folder first - this needs a project workspace.");
     return null;
   }
   return projectId;
@@ -197,7 +197,7 @@ export function registerCommands(
         const fresh = await projects.getSettings(projectId);
         const buildResult = await buildFrontend.build(fresh);
         if (!buildResult.ok) {
-          void vscode.window.showErrorMessage(`DevLens: build failed — ${buildResult.error}`);
+          void vscode.window.showErrorMessage(`DevLens: build failed - ${buildResult.error}`);
           return;
         }
 
@@ -215,7 +215,7 @@ export function registerCommands(
         if (copyResult.ok) {
           void vscode.window.showInformationMessage(`DevLens: ${copyResult.output}`);
         } else {
-          void vscode.window.showErrorMessage(`DevLens: copy failed — ${copyResult.error}`);
+          void vscode.window.showErrorMessage(`DevLens: copy failed - ${copyResult.error}`);
         }
         return;
       }
@@ -240,7 +240,7 @@ export function registerCommands(
         {
           modal: true,
           detail: action.built_in
-            ? "This is a built-in action. Deleting it won't bring it back automatically — you can recreate it manually if you change your mind."
+            ? "This is a built-in action. Deleting it won't bring it back automatically - you can recreate it manually if you change your mind."
             : "This can't be undone.",
         },
         "Delete",

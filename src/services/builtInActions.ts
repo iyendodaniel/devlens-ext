@@ -2,7 +2,7 @@ import { ActionStep } from "../types";
 
 // Ported as-is from devlens-main/devlens/backend/api.py's BUILT_IN_ACTIONS.
 // Seeded into storage the first time a workspace's actions are loaded, then
-// stored like any other Action — this is only ever read for a brand-new
+// stored like any other Action - this is only ever read for a brand-new
 // project, never re-applied over a user's edits (see ActionsService.seed).
 export const BUILT_IN_ACTIONS: Record<string, { name: string; steps: ActionStep[] }> = {
   build_frontend: {

@@ -13,7 +13,7 @@ const STATUS_ORDER: BugStatus[] = ["open", "investigating", "resolved"];
 type TreeNode = { kind: "status"; status: BugStatus; bugs: Bug[] } | { kind: "bug"; bug: Bug };
 
 /**
- * Bug Book stays project-agnostic, exactly like the original — bugs aren't
+ * Bug Book stays project-agnostic, exactly like the original - bugs aren't
  * scoped to a workspace folder here either.
  */
 export class BugsTreeProvider implements vscode.TreeDataProvider<TreeNode> {

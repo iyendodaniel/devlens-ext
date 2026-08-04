@@ -3,7 +3,7 @@ import { Action, ActionStep, ExecutionMode } from "../types";
 import { StorageService } from "../services/storageService";
 
 /**
- * Steps are edited as JSON text rather than a dedicated per-field form —
+ * Steps are edited as JSON text rather than a dedicated per-field form -
  * the step shape (command vs operation, each with different fields) varies
  * enough that a generic JSON editor covers both without two separate forms.
  * Same trade-off as the other panels: ships now, upgradeable to a richer
@@ -109,7 +109,7 @@ export class ActionEditorPanel {
 <body>
   <div class="header">
     <h1>Edit Action</h1>
-    <p>Automate repetition, not understanding — Learning mode shows every step before running it; Automation runs immediately.</p>
+    <p>Automate repetition, not understanding - Learning mode shows every step before running it; Automation runs immediately.</p>
   </div>
 
   <div class="form">
@@ -118,8 +118,8 @@ export class ActionEditorPanel {
 
     <label for="mode">Execution mode</label>
     <select id="mode">
-      <option value="learning" ${a.execution_mode === "learning" ? "selected" : ""}>📘 Learning — preview and confirm before every run</option>
-      <option value="automation" ${a.execution_mode === "automation" ? "selected" : ""}>⚡ Automation — runs immediately, no preview</option>
+      <option value="learning" ${a.execution_mode === "learning" ? "selected" : ""}>📘 Learning - preview and confirm before every run</option>
+      <option value="automation" ${a.execution_mode === "automation" ? "selected" : ""}>⚡ Automation - runs immediately, no preview</option>
     </select>
 
     <label for="steps">Steps</label>

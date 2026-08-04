@@ -4,16 +4,16 @@ import { ScannedEndpoint } from "../types";
 
 /**
  * scripts/scanner.py is copied byte-for-byte from the original pywebview
- * app (see esbuild.js's copyScanner). Its AST-walking logic — resolving
+ * app (see esbuild.js's copyScanner). Its AST-walking logic - resolving
  * urlpatterns, following include(), inferring HTTP methods from DRF base
- * classes / @api_view / request.method checks — doesn't change; only *how*
+ * classes / @api_view / request.method checks - doesn't change; only *how*
  * it's invoked does. The old app called it as a plain Python import in the
  * same process; here it has to run as a child process, since the extension
  * host is Node.
  *
  * scanner.py's own `if __name__ == "__main__"` block already prints JSON
  * to stdout when run with a project path as argv[1], so no changes to the
- * script itself were needed to make it usable this way — that entry point
+ * script itself were needed to make it usable this way - that entry point
  * existed already for standalone/debugging use.
  */
 export class ScannerService {
@@ -34,7 +34,7 @@ export class ScannerService {
         if (path) return path;
       }
     } catch {
-      // Python extension not installed/active, or its API shape changed —
+      // Python extension not installed/active, or its API shape changed -
       // fall through to PATH-based resolution below rather than failing.
     }
     return process.platform === "win32" ? "python" : "python3";
@@ -46,7 +46,7 @@ export class ScannerService {
 
     // Import scanner.py as a module and print only clean JSON, rather than
     // relying on its __main__ block (which also prints a human-readable
-    // "N routes found." line after the JSON — fine for standalone/debug use,
+    // "N routes found." line after the JSON - fine for standalone/debug use,
     // but an extra thing to strip out here for no benefit). scanner.py
     // itself is untouched; this is just a different, cleaner call site.
     const inlineScript = [
@@ -71,7 +71,7 @@ export class ScannerService {
           reject(
             new Error(
               `Could not run "${pythonCmd}". DevLens's Endpoint Explorer needs a Python interpreter on PATH ` +
-                `(it scans urls.py with a bundled Python script) — install Python or set one via the Python extension.`,
+                `(it scans urls.py with a bundled Python script) - install Python or set one via the Python extension.`,
             ),
           );
         } else {

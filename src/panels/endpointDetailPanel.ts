@@ -19,7 +19,7 @@ export class EndpointDetailPanel {
 
     const endpoint = await storage.getEndpoint(projectId, endpointId);
     if (!endpoint) {
-      void vscode.window.showErrorMessage("DevLens: endpoint not found — try rescanning.");
+      void vscode.window.showErrorMessage("DevLens: endpoint not found - try rescanning.");
       return;
     }
 
@@ -96,7 +96,7 @@ export class EndpointDetailPanel {
 
   <div class="form">
     <label for="notes">Notes</label>
-    <p class="hint">What this endpoint does, who calls it, auth requirements — anything worth remembering next time you're here.</p>
+    <p class="hint">What this endpoint does, who calls it, auth requirements - anything worth remembering next time you're here.</p>
     <textarea id="notes" placeholder="e.g. Called by the mobile app's login screen. Requires a valid refresh token.">${escapeHtml(ep.ai_notes ?? "")}</textarea>
   </div>
 

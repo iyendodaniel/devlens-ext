@@ -32,7 +32,7 @@ export class EndpointsTreeProvider implements vscode.TreeDataProvider<TreeNode> 
     const ep = element.endpoint;
     const item = new vscode.TreeItem(`${ep.method} ${ep.path}`, vscode.TreeItemCollapsibleState.None);
     item.description = ep.view;
-    item.tooltip = ep.ai_notes || `${ep.view} — last scanned ${ep.last_scanned}`;
+    item.tooltip = ep.ai_notes || `${ep.view} - last scanned ${ep.last_scanned}`;
     item.contextValue = "endpoint";
     item.iconPath = new vscode.ThemeIcon(methodIcon(ep.method));
     item.command = {

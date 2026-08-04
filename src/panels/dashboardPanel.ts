@@ -5,7 +5,7 @@ import { ActionsService } from "../services/actionsService";
 import { Action, Bug, Endpoint } from "../types";
 
 /**
- * DevLens as its own editor-area tab — an alternative surface to the
+ * DevLens as its own editor-area tab - an alternative surface to the
  * sidebar tree views, for people who'd rather have DevLens live next to
  * their other open files the way Kilo/Copilot Chat do, instead of hunting
  * for an Activity Bar icon.
@@ -113,8 +113,8 @@ export class DashboardPanel {
   .header h1 { margin: 0; font-size: 17px; font-weight: 600; }
   .header p { margin: 5px 0 0; font-size: 12px; opacity: 0.65; }
   /* auto-fit + minmax means columns collapse on their own as the tab is
-     resized — 3 across when there's room, then 2, then a single stacked
-     column — instead of squeezing 3 fixed columns until content is cut off. */
+     resized - 3 across when there's room, then 2, then a single stacked
+     column - instead of squeezing 3 fixed columns until content is cut off. */
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px;
     padding: 20px 28px 40px; max-width: 1200px; }
   .card { border: 1px solid var(--vscode-widget-border, rgba(128,128,128,0.2)); border-radius: 6px;
@@ -192,7 +192,7 @@ export class DashboardPanel {
   </div>
 
   <div class="footer-note">
-    This tab is a companion to the DevLens sidebar (Activity Bar icon) — same data, same commands, just living
+    This tab is a companion to the DevLens sidebar (Activity Bar icon) - same data, same commands, just living
     in the editor area instead. Use whichever fits how you work; changes made in one show up in the other.
   </div>
 
@@ -304,7 +304,7 @@ export class DashboardPanel {
     if (msg.type !== "data") return;
     document.getElementById("subtitleText").textContent = msg.hasProject
       ? "Project: " + msg.projectName + (msg.frontendPath ? " · Frontend: " + msg.frontendPath : "")
-      : "No folder open — open a project folder to see endpoints and actions.";
+      : "No folder open - open a project folder to see endpoints and actions.";
     renderBugs(msg.bugs);
     renderEndpoints(msg.endpoints, msg.hasProject);
     renderActions(msg.actions, msg.hasProject);

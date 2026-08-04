@@ -1,7 +1,7 @@
 {
   "name": "devlens",
   "displayName": "DevLens",
-  "description": "Your project's memory: bugs solved, endpoints mapped, workflows automated — without leaving VS Code.",
+  "description": "Your project's memory: bugs solved, endpoints mapped, workflows automated - without leaving VS Code.",
   "version": "0.4.0",
   "publisher": "danieliyendo",
   "license": "MIT",
